@@ -1,0 +1,71 @@
+# Clase 9 
+# GitHub Actions
+
+1- Introduccion
+2- Workflow
+3- acciones
+4- inputs de una accion y secrets
+5- ejemplos
+6- Eventos
+7- Como hacer un workflow, creacion de evento a mano
+8- Estructura de una accion
+9- Resolucion de fallos
+10 Editar workflows
+
+
+acciones Ç= respuestas a eventos que pasan dentro de github
+
+workflow: fichero .yml. defino eventos
+
+eventos = issues, ..., pull, merge. reacciono con un trabajo
+
+jobs: estan en los eventos y tienen pasos
+
+setps: son los pasos
+
+actions:
+
+runners: son los agentes
+
+
+www.github.com/actions
+
+www.github.com/actions/FirstInteraction: revisar siempre el action.yml
+
+
+En tu repositorio se crean ficheros:
+el que sea .yml -> anda a revisar el action.yml del repo github
+
+
+secrets: no estan dentro del contenido del repositorio
+conjuntos llave-valor 
+Se configuran en settings
+
+
+eventos:
+push, pull request, relese, schedule(planificar push)
+
+
+los workflows son automticos ha no ser que aparezca workflow_dispach
+
+
+
+Formato del action:
+
+name:
+
+on:
+
+sintaxys:
+
+(-25:00): ejemplo de .github/workflows/ejemplo.yml : push + docker
+
+vi filename es para modificar el fichero
+
+para que exista el boton de run_workflow tenes que configurar el workflow_dispach en el config.yml
+
+
+
+
+
+

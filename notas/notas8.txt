@@ -1,0 +1,130 @@
+CI/CD
+INTEGRACION EN ENTORNOS CONTINUOS
+DESPLIEGUES CONTINUOS
+
+1- INTRODUCCION, QUE ES LA INTEGRACION CONTINUA
+2- ESQUEMA DE INTEGRACION CONTINUA
+3- ENTREGA CONTINUA
+4- FLAGS
+5- ESQUEMA COMPLETO DE PIPELINES
+6- ESQUEMA DE ENTREGA CONTINUA
+7- SOFTWARES PARA AUTOMATIZAR LA INTEGRACION: PROVEEDORES DE CI
+8- TeamCity
+9- REPASO DEL PROCESO Y EJEMPLO
+10- PORQUE CREAR UN TEAMCITY
+11- JENKINGS
+12- ENTREGA CONTINUA CON JENKINGS
+13- OPCIONES WEB: CIRCLE CI
+14- CAMBIAR CONFIGURACION DE CIRCLE CI
+15- TRAVIS CI
+16- OTRAS OPCIONES WEB
+17- EJEMPLO CON TRAVIS CI
+18- REPASO
+
+1-
+proceso para integrar continuamente en un proyecto todos nuestros cambios
+es un proceso automatizador or manual
+se ejecuta cada x tiempo (15min 1h, depende)
+pilareS:
+	codigo versionado
+		en un repositorio: porque cuando haga push or commit ese código sera el que se va a integrar
+2-
+grafico
+CI: 
+	-> cada x tiempo verificamos los ultimos cambios
+		-> El codigo debe estar en el repositorio
+			- Versionado, con SVN, Git, ...
+
+metodologia de trabajo antigua:
+1. Nos conectabamos a un servidor de pruebas
+2. obteniamos el codigo fuente (git pull)
+3. Lo compilabamos (min, aradle, campe, etc)
+4. Ejecutabamos las pruebas (si había)
+5. Ejecutabamos el software
+
+metodologia actual: se delega a un soft (apache continue, pipeline)
+
+3- continous delivery despliegue continuo
+Pasar a produccion rapidamente nuestros cambios
+Se deben hacer pequeños cambios en etapas
+los cambios se deben poder integrar facilmene - se contradice con gitflow
+los cambios no son publicos para todos
+
+CICD == pipeline == True
+-1:31:05
+
+CD:
+(-1-27:00)
+1. Copiar ficheros resultantes en el servidor de produccion
+2. Re-ejecutar el programa en cuestión
+
+Ventajas de los soft:
+automatizacion
+
+`ejemplo en terminal (-1:26:00) (-1:24:50)`
+
+7-
+
+8-
+TeamCity
+
+
+install github webhook
+`(-1:18:18)`
+Cuando modifico los hooks servers side en un repositorio de github, cuando le mande algo a github, github le va a mandar una orden de al proyecto TeamCity
+
+Run: para activar el agente que sincronice cada x tiempo
+
+`(1:05:00)` ver como instalar teamcity proffesional en tu pc gratuito y unirlo con docker: no se puede conectar github
+
+
+11-
+`(-53:00)`
+JENKINS
+
+jenkins.io
+tiene plugins: ci.freebsd.org: es un jenkins: podemos ver trabajos 
+
+web documentacion: jenkins.pipeline.syntax
+<scripts>
+GitHub + Maden
+
+secciones de pipelines
+	agent any
+	tools: Maven
+	stages: agrupaciones de pasos (steps)
+		stage(Build): dentro de stages hay stage
+			step{obtener repo de github}
+			post {
+				success{}}
+
+# crear nuevo stage stage("Deploy"){}
+`(-36:00)`
+pasos: sh 'scp fichero.jar usuario@servidor:/opt/tomcat6' : ejecuta una terminal y ejecuta el comando que esta en ''
+
+pasos: sh 'scp target/*.jar vroman#185.142.62.4:/home/vroman/jenkins `(-33:05)`
+
+13- CIRCLE CI
+app-circle-ci.com
+
+`(-31:30)`
+funciona con docker, te agrega ficheros al repositorio de GitHub config.yml
+
+despues tengo que crear el workflow:
+	sample:
+	build and test: que tengo definido arriba
+
+
+## conectar CircleCI con GitHub 
+`(-19:30)`
+
+elegir .circleci/config.yml
+
+los cambios conCCI se hacen sobre una nueva rama, deja la main intacta
+
+
+15-
+`(-13:30)`
+
+
+Tambien se puede usar GitHub Action

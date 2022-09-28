@@ -1,0 +1,23 @@
+# Clase 10
+# USANDO GITLAB COMO PROVEEDOR DE CI-CD
+
+
+crear repositorio
+	trabajo de integracion (pipelines)
+		especificaciones que deben cumplirse para que un proyecto:
+			- descargue su codigo fuente
+			- valide 
+			- ...
+			- generar un artefacto
+			- generar un fichero descargable
+			- copiarse a un servidor de produccion
+
+instalar gitlab con docker? podemos usarlos desde la web
+
+variables de trabajo y variables de entorno
+CI_COMMIT_BRANCH branch pipelines
+
+en un proyecto privado el tiempo de ejecucion de los runners es limitado 400 min / 10k min / 50k min
+
+
+git rm -r filename: to remove
